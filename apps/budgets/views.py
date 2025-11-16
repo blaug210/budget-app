@@ -95,3 +95,49 @@ def add_transaction(request, budget_id):
             messages.error(request, f'Error adding transaction: {str(e)}')
 
     return redirect('budgets:budget_detail', pk=budget_id)
+
+
+def edit_transaction(request, pk):
+    """Edit an existing transaction."""
+    item = get_object_or_404(BudgetItem, pk=pk)
+    budget = item.budget
+
+    if request.method == 'POST':
+        try:
+            # Update transaction fields
+            item.date = request.POST.get('date')
+            item.description = request.POST.get('description')
+            item.monitary_value = request.POST.get('amount')
+            item.category_id = request.POST.get('category')
+
+            # Update optional fields
+            member_id = request.POST.get('member')
+            item.member_id = member_id if member_id else None
+
+            source_id = request.POST.get('source')
+            item.source_id = source_id if source_id else None
+
+            item.save()
+
+            messages.success(request, f'Transaction "{item.description}" updated successfully!')
+
+        except Exception as e:
+            messages.error(request, f'Error updating transaction: {str(e)}')
+
+    return redirect('budgets:budget_detail', pk=budget.pk)
+
+
+def delete_transaction(request, pk):
+    """Delete a transaction."""
+    item = get_object_or_404(BudgetItem, pk=pk)
+    budget = item.budget
+    description = item.description
+
+    if request.method == 'POST':
+        try:
+            item.delete()
+            messages.success(request, f'Transaction "{description}" deleted successfully!')
+        except Exception as e:
+            messages.error(request, f'Error deleting transaction: {str(e)}')
+
+    return redirect('budgets:budget_detail', pk=budget.pk)
