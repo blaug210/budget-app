@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}My Budgets - Budget App{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1><i class="bi bi-wallet2"></i> My Budgets</h1>
+        <p class="text-muted">Manage your budgets and track your finances</p>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="/admin/budgets/budget/add/" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> New Budget
+        </a>
+    </div>
+</div>
+
+{% if budgets %}
+<div class="row">
+    {% for budget in budgets %}
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm stat-card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'budgets:budget_detail' budget.pk %}" class="text-decoration-none">
+                        {{ budget.name }}
+                    </a>
+                </h5>
+                <p class="card-text text-muted small">
+                    <i class="bi bi-folder"></i> {{ budget.group.name }}
+                </p>
+
+                <hr>
+
+                <div class="row text-center">
+                    <div class="col-6">
+                        <small class="text-muted d-block">Transactions</small>
+                        <strong>{{ budget.item_count|default:0 }}</strong>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted d-block">Balance</small>
+                        {% if budget.total_balance %}
+                            <strong class="{% if budget.total_balance >= 0 %}balance-positive{% else %}balance-negative{% endif %}">
+                                ${{ budget.total_balance|floatformat:2 }}
+                            </strong>
+                        {% else %}
+                            <strong class="text-muted">$0.00</strong>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if budget.is_copy %}
+                <span class="badge bg-info mt-2"><i class="bi bi-files"></i> Copy</span>
+                {% endif %}
+                {% if budget.is_whatif %}
+                <span class="badge bg-warning mt-2"><i class="bi bi-question-circle"></i> What-If</span>
+                {% endif %}
+            </div>
+            <div class="card-footer bg-transparent">
+                <a href="{% url 'budgets:budget_detail' budget.pk %}" class="btn btn-sm btn-outline-primary w-100">
+                    <i class="bi bi-eye"></i> View Details
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info">
+    <h4><i class="bi bi-info-circle"></i> No Budgets Yet</h4>
+    <p>Get started by creating your first budget!</p>
+    <a href="/admin/budgets/budget/add/" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Create Your First Budget
+    </a>
+</div>
+{% endif %}
+{% endblock %}

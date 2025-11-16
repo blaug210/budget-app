@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ budget.name }} - Budget App{% endblock %}
+
+{% block content %}
+<!-- Budget Header -->
+<div class="row mb-4">
+    <div class="col-md-8">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'budgets:budget_list' %}">Budgets</a></li>
+                <li class="breadcrumb-item active">{{ budget.name }}</li>
+            </ol>
+        </nav>
+        <h1><i class="bi bi-wallet2"></i> {{ budget.name }}</h1>
+        <p class="text-muted"><i class="bi bi-folder"></i> {{ budget.group.name }}</p>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'budgets:budget_list' %}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Back to List
+        </a>
+    </div>
+</div>
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Total Income</h6>
+                <h3 class="income">${{ income_total|floatformat:2 }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card stat-card" style="border-left-color: #dc3545;">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Total Expenses</h6>
+                <h3 class="expense">${{ expense_total|floatformat:2 }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card stat-card" style="border-left-color: {% if current_balance >= 0 %}#198754{% else %}#dc3545{% endif %};">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Current Balance</h6>
+                <h3 class="{% if current_balance >= 0 %}balance-positive{% else %}balance-negative{% endif %}">
+                    ${{ current_balance|floatformat:2 }}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Transaction Form -->
+<div class="card mb-4 shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0"><i class="bi bi-plus-circle"></i> Add New Transaction</h5>
+    </div>
+    <div class="card-body">
+        <form method="post" action="{% url 'budgets:add_transaction' budget.pk %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date *</label>
+                        <input type="date" class="form-control" id="date" name="date" required
+                               value="{% now 'Y-m-d' %}">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description *</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                               placeholder="e.g., Grocery shopping" required>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount *</label>
+                        <input type="number" step="0.01" class="form-control" id="amount" name="amount"
+                               placeholder="0.00" required>
+                        <small class="text-muted">Negative for expenses</small>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category *</label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Choose...</option>
+                            {% for cat in categories %}
+                            <option value="{{ cat.pk }}">{{ cat.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <label for="member" class="form-label">Member</label>
+                        <select class="form-select" id="member" name="member">
+                            <option value="">Choose...</option>
+                            {% for mem in members %}
+                            <option value="{{ mem.pk }}">{{ mem.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-circle"></i> Add Transaction
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Transactions List -->
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-list-ul"></i> Transactions ({{ items.count }})</h5>
+    </div>
+    <div class="card-body p-0">
+        {% if items %}
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Member</th>
+                        <th class="text-end">Amount</th>
+                        <th class="text-end">Running Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr class="transaction-row">
+                        <td>{{ item.date|date:"M d, Y" }}</td>
+                        <td>
+                            <strong>{{ item.description }}</strong>
+                            {% if item.imported %}
+                            <span class="badge bg-secondary ms-1">
+                                <i class="bi bi-download"></i> Imported
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark">{{ item.category.name }}</span>
+                        </td>
+                        <td>
+                            {% if item.member %}
+                            <small class="text-muted">{{ item.member.name }}</small>
+                            {% else %}
+                            <small class="text-muted">-</small>
+                            {% endif %}
+                        </td>
+                        <td class="text-end">
+                            <strong class="{% if item.monitary_value >= 0 %}income{% else %}expense{% endif %}">
+                                {% if item.monitary_value >= 0 %}+{% endif %}${{ item.monitary_value|floatformat:2 }}
+                            </strong>
+                        </td>
+                        <td class="text-end">
+                            <span class="{% if item.running_balance >= 0 %}balance-positive{% else %}balance-negative{% endif %}">
+                                ${{ item.running_balance|floatformat:2 }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="p-4 text-center text-muted">
+            <i class="bi bi-inbox" style="font-size: 3rem;"></i>
+            <p class="mt-2">No transactions yet. Add your first transaction above!</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
