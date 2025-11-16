@@ -16,16 +16,27 @@ INSTALLED_APPS += [
 ]
 
 # Development database (can override with .env)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME', default='budget_app_dev'),
-        'USER': config('DB_USER', default='budget_user'),
-        'PASSWORD': config('DB_PASSWORD', default='budget_pass'),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='5432'),
+# Use SQLite if DB_ENGINE is set to sqlite3, otherwise use PostgreSQL
+DB_ENGINE = config('DB_ENGINE', default='postgresql')
+
+if DB_ENGINE == 'sqlite3':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('DB_NAME', default='budget_app_dev'),
+            'USER': config('DB_USER', default='budget_user'),
+            'PASSWORD': config('DB_PASSWORD', default='budget_pass'),
+            'HOST': config('DB_HOST', default='localhost'),
+            'PORT': config('DB_PORT', default='5432'),
+        }
+    }
 
 # CORS settings for development (if using React frontend)
 INSTALLED_APPS += ['corsheaders']

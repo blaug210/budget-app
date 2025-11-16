@@ -329,24 +329,24 @@ budget_app/
 ### Phase 1: Foundation & Architecture (Weeks 1-3)
 
 #### Week 1: Project Setup
-- [ ] Set up Git repository
-- [ ] Create Django project with recommended structure
-- [ ] Configure settings for dev/prod/test environments
+- [x] Set up Git repository
+- [x] Create Django project with recommended structure
+- [x] Configure settings for dev/prod/test environments
 - [ ] Set up PostgreSQL database
 - [ ] Configure Docker and docker-compose
-- [ ] Set up virtual environment and dependencies
+- [x] Set up virtual environment and dependencies
 - [ ] Configure linting (flake8, black, mypy)
 - [ ] Set up pytest configuration
-- [ ] Create .env.example file
-- [ ] Initialize README.md with setup instructions
+- [x] Create .env.example file
+- [x] Initialize README.md with setup instructions
 
 #### Week 2: Database Design
-- [ ] Design database schema (ERD)
-- [ ] Create initial Django models (without business logic)
-- [ ] Set up migrations
+- [x] Design database schema (ERD)
+- [x] Create initial Django models (without business logic)
+- [x] Set up migrations
 - [ ] Configure Django admin for all models
 - [ ] Add model managers and querysets
-- [ ] Create model mixins (TimestampMixin, etc.)
+- [x] Create model mixins (TimestampMixin, etc.)
 - [ ] Write model unit tests
 - [ ] Set up factory_boy factories for testing
 
