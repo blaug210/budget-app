@@ -370,6 +370,63 @@ budget_app/
 
 ---
 
+### CURRENT WORK: Real Data Import (XML & CSV)
+
+#### Immediate Next Steps
+
+**Step 1: Analyze Data Structure**
+- [ ] Examine XML data files to understand structure and fields
+- [ ] Examine CSV data files to understand structure and fields
+- [ ] Document all fields found in the source data
+- [ ] Map XML/CSV fields to existing Django models
+- [ ] Identify any missing fields that need to be added to models
+
+**Step 2: Update Models if Needed**
+- [ ] Add any missing fields to BudgetItem model
+- [ ] Add any missing fields to Budget model
+- [ ] Add any missing fields to Category, Member, Source models
+- [ ] Create and run migrations for new fields
+- [ ] Update admin interface for new fields
+
+**Step 3: Create Import Scripts**
+- [ ] Create XML parser (apps/imports/parsers/xml_parser.py)
+- [ ] Create CSV parser (apps/imports/parsers/csv_parser.py)
+- [ ] Create XML importer service (apps/imports/services/xml_importer.py)
+- [ ] Enhance CSV importer service
+- [ ] Create Django management command: import_xml_data
+- [ ] Create Django management command: import_csv_data
+- [ ] Add data validation and error handling
+- [ ] Implement duplicate detection for imports
+
+**Step 4: Test Import**
+- [ ] Run import on XML data
+- [ ] Run import on CSV data
+- [ ] Validate imported data in database
+- [ ] Check running balance calculations
+- [ ] Verify all relationships (categories, members, sources)
+- [ ] Test viewing imported data in UI
+- [ ] Fix any data issues or mapping problems
+
+**Step 5: Update UI for Imported Data**
+- [ ] Add import source indicator in transaction list
+- [ ] Add filters for imported vs manual transactions
+- [ ] Add import history view
+- [ ] Test full workflow with real data
+
+**Data Location:**
+- XML files: `budget-app/data/xml/` (or `apps/imports/data/xml/`)
+- CSV files: `budget-app/data/csv/` (or `apps/imports/data/csv/`)
+
+**Success Criteria:**
+- All XML data successfully imported
+- All CSV data successfully imported
+- Data appears correctly in UI
+- Running balances calculate correctly
+- All categories, members, and sources properly linked
+- No data loss or corruption
+
+---
+
 ### Phase 2: Domain Model Migration (Weeks 4-6)
 
 #### Week 4: Core Models Implementation
