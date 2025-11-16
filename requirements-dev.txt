@@ -1,0 +1,19 @@
+# Include base requirements
+-r requirements.txt
+
+# Testing
+pytest==7.4.*
+pytest-django==4.5.*
+pytest-cov==4.1.*
+factory-boy==3.3.*
+faker==20.1.*
+
+# Code quality
+black==24.*
+flake8==7.*
+mypy==1.8.*
+isort==5.12.*
+
+# Development tools
+django-extensions==3.2.*
+ipython==8.18.*
