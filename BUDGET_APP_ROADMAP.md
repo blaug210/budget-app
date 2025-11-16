@@ -344,7 +344,7 @@ budget_app/
 - [x] Design database schema (ERD)
 - [x] Create initial Django models (without business logic)
 - [x] Set up migrations
-- [ ] Configure Django admin for all models
+- [x] Configure Django admin for all models
 - [ ] Add model managers and querysets
 - [x] Create model mixins (TimestampMixin, etc.)
 - [ ] Write model unit tests
@@ -362,9 +362,11 @@ budget_app/
 - [ ] Set up logging configuration
 
 **Decision Points:**
-- [ ] **DECISION:** Choose frontend approach (React SPA vs Django Templates + HTMX)
+- [x] **DECISION:** Choose frontend approach (Django Templates + Bootstrap 5 - can add HTMX later)
 - [ ] **DECISION:** Determine authentication strategy (session vs JWT)
 - [ ] **DECISION:** Decide on real-time updates approach (WebSockets, polling, or none)
+
+**Note:** Built basic custom UI early (Budget list/detail views) to have something tangible to work with.
 
 ---
 
