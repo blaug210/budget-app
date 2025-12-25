@@ -328,29 +328,31 @@ budget_app/
 
 ### Phase 1: Foundation & Architecture (Weeks 1-3)
 
-#### Week 1: Project Setup
+#### Week 1: Project Setup ✅ COMPLETED
 - [x] Set up Git repository
 - [x] Create Django project with recommended structure
 - [x] Configure settings for dev/prod/test environments
-- [ ] Set up PostgreSQL database
-- [ ] Configure Docker and docker-compose
+- [x] Set up PostgreSQL database
+- [x] Configure Docker and docker-compose
 - [x] Set up virtual environment and dependencies
-- [ ] Configure linting (flake8, black, mypy)
-- [ ] Set up pytest configuration
+- [x] Configure linting (flake8, black, mypy)
+- [x] Set up pytest configuration
 - [x] Create .env.example file
 - [x] Initialize README.md with setup instructions
 
-#### Week 2: Database Design
+#### Week 2: Database Design ✅ COMPLETED
 - [x] Design database schema (ERD)
 - [x] Create initial Django models (without business logic)
 - [x] Set up migrations
 - [x] Configure Django admin for all models
-- [ ] Add model managers and querysets
+- [x] Add model managers and querysets
 - [x] Create model mixins (TimestampMixin, etc.)
-- [ ] Write model unit tests
-- [ ] Set up factory_boy factories for testing
+- [x] Write model unit tests (30 tests, 100% passing)
+- [x] Set up factory_boy factories for testing
 
-#### Week 3: Core Infrastructure
+#### Week 3: Core Infrastructure + Bulk Upload (PRIORITY)
+- [ ] **🎯 PRIORITY: Implement Bulk Upload UI (see priority section above)**
+- [ ] **🎯 PRIORITY: Create CSV/XML parsers and import services**
 - [ ] Set up Django REST Framework
 - [ ] Configure CORS settings
 - [ ] Set up Celery for background tasks
@@ -370,50 +372,80 @@ budget_app/
 
 ---
 
-### CURRENT WORK: Real Data Import (XML & CSV)
+### 🎯 PRIORITY FEATURE: Bulk Upload for CSV/XML Data
 
-#### Immediate Next Steps
+**User Story**: As a user, I want a "Bulk Upload" button next to the "Add Transaction" button that allows me to upload CSV or XML files and automatically import and sort all the transaction data into my budget.
 
-**Step 1: Analyze Data Structure**
+#### High-Priority Implementation Tasks
+
+**Phase A: File Upload UI (Week 3 Priority)** ✅ COMPLETED
+- [x] Add "Bulk Upload" button to budget detail page
+- [x] Create file upload modal/page with drag-and-drop support
+- [x] Add file type selector (CSV/XML)
+- [x] Implement file validation (type, size limits)
+- [ ] Create progress indicator during upload (optional enhancement)
+
+**Phase B: Data Import Backend**
 - [ ] Examine XML data files to understand structure and fields
 - [ ] Examine CSV data files to understand structure and fields
 - [ ] Document all fields found in the source data
 - [ ] Map XML/CSV fields to existing Django models
 - [ ] Identify any missing fields that need to be added to models
 
-**Step 2: Update Models if Needed**
+**Phase C: Update Models if Needed**
 - [ ] Add any missing fields to BudgetItem model
 - [ ] Add any missing fields to Budget model
 - [ ] Add any missing fields to Category, Member, Source models
 - [ ] Create and run migrations for new fields
 - [ ] Update admin interface for new fields
 
-**Step 3: Create Import Scripts**
-- [ ] Create XML parser (apps/imports/parsers/xml_parser.py)
-- [ ] Create CSV parser (apps/imports/parsers/csv_parser.py)
-- [ ] Create XML importer service (apps/imports/services/xml_importer.py)
-- [ ] Enhance CSV importer service
-- [ ] Create Django management command: import_xml_data
-- [ ] Create Django management command: import_csv_data
-- [ ] Add data validation and error handling
-- [ ] Implement duplicate detection for imports
+**Phase D: Create Parsers and Import Services** ✅ COMPLETED
+- [x] Create XML parser (apps/imports/parsers/xml_parser.py)
+- [x] Create CSV parser (apps/imports/parsers/csv_parser.py)
+- [x] Create unified ImportService (apps/imports/services/import_service.py)
+- [x] Add data validation and error handling
+- [x] Implement automatic category/member/source matching
+- [x] Implement duplicate detection for imports
+- [x] Add running balance recalculation after import
 
-**Step 4: Test Import**
-- [ ] Run import on XML data
-- [ ] Run import on CSV data
+**Phase E: Import Preview & Validation**
+- [ ] Implement preview functionality (show first 10-20 rows before import)
+- [ ] Add column mapping interface for CSV files (map CSV columns to model fields)
+- [ ] Show data validation warnings (missing categories, invalid amounts, etc.)
+- [ ] Create confirmation step with summary (X items to import, Y duplicates found)
+- [ ] Allow user to select duplicate handling strategy (skip/replace/merge)
+
+**Phase F: Import Execution & Feedback** ✅ CORE COMPLETED
+- [x] Create upload view to handle file uploads (apps/budgets/views.py bulk_upload)
+- [x] Display import results (success count, errors, duplicates detected)
+- [x] Handle errors gracefully with user-friendly messages
+- [ ] Add real-time progress indicator during import (optional enhancement)
+- [ ] Add import source indicator in transaction list (data tracked, UI pending)
+- [ ] Add filters for imported vs manual transactions (future enhancement)
+- [ ] Add ability to download error log if import fails (future enhancement)
+- [ ] Add import history page showing past uploads (future enhancement)
+- [ ] Implement import rollback/undo functionality (future enhancement)
+
+**Phase G: Testing & Polish**
+- [ ] Test CSV import with various formats
+- [ ] Test XML import with real data
 - [ ] Validate imported data in database
-- [ ] Check running balance calculations
+- [ ] Check running balance calculations are correct
 - [ ] Verify all relationships (categories, members, sources)
-- [ ] Test viewing imported data in UI
+- [ ] Test duplicate detection accuracy
+- [ ] Test full workflow end-to-end
 - [ ] Fix any data issues or mapping problems
 
-**Step 5: Update UI for Imported Data**
-- [ ] Add import source indicator in transaction list
-- [ ] Add filters for imported vs manual transactions
-- [ ] Add import history view
-- [ ] Test full workflow with real data
+**UI Features:**
+- Upload page with drag-and-drop file support
+- File format selector (CSV/XML)
+- Preview table showing parsed data
+- Budget selector (which budget to import into)
+- Duplicate handling options (skip/replace/merge)
+- Import button with confirmation dialog
+- Success/error notifications
 
-**Data Location:**
+**Data Location (for script-based imports):**
 - XML files: `budget-app/data/xml/` (or `apps/imports/data/xml/`)
 - CSV files: `budget-app/data/csv/` (or `apps/imports/data/csv/`)
 
@@ -424,6 +456,8 @@ budget_app/
 - Running balances calculate correctly
 - All categories, members, and sources properly linked
 - No data loss or corruption
+- **Web upload interface works smoothly for future imports**
+- **Users can upload files directly through the app**
 
 ---
 

@@ -72,9 +72,9 @@ class BudgetGroupAdmin(admin.ModelAdmin):
 class BudgetItemInline(admin.TabularInline):
     model = BudgetItem
     extra = 0
-    fields = ['date', 'description', 'category', 'monitary_value', 'member', 'running_balance']
+    fields = ['date', 'description', 'monitary_value', 'member', 'running_balance']
     readonly_fields = ['running_balance', 'unique_id']
-    autocomplete_fields = ['category', 'member', 'source']
+    autocomplete_fields = ['member', 'source']
     show_change_link = True
 
 
@@ -118,17 +118,18 @@ class BudgetAdmin(admin.ModelAdmin):
 
 @admin.register(BudgetItem)
 class BudgetItemAdmin(admin.ModelAdmin):
-    list_display = ['date', 'description', 'category', 'get_amount', 'member', 'budget', 'running_balance', 'imported']
-    list_filter = ['budget', 'category', 'member', 'source', 'imported', 'is_breakout', 'date']
+    list_display = ['date', 'description', 'get_categories', 'get_amount', 'member', 'budget', 'running_balance', 'imported']
+    list_filter = ['budget', 'member', 'source', 'imported', 'is_breakout', 'date']
     search_fields = ['description', 'unique_id', 'reference_number']
     ordering = ['-date', '-sequence_number']
     readonly_fields = ['unique_id', 'sequence_number', 'running_balance', 'update_timestamp', 'created_at', 'updated_at']
-    autocomplete_fields = ['budget', 'category', 'member', 'source', 'category_vendor', 'parent']
+    autocomplete_fields = ['budget', 'member', 'source', 'category_vendor', 'parent']
+    filter_horizontal = ['categories', 'accounting_categories']
     date_hierarchy = 'date'
 
     fieldsets = (
         ('Transaction Details', {
-            'fields': ('budget', 'date', 'description', 'monitary_value', 'category')
+            'fields': ('budget', 'date', 'description', 'monitary_value', 'categories')
         }),
         ('Additional Information', {
             'fields': ('member', 'source', 'category_vendor', 'posted_date', 'short_date', 'reference_number')
@@ -146,6 +147,10 @@ class BudgetItemAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
     )
+
+    def get_categories(self, obj):
+        return ", ".join([cat.name for cat in obj.categories.all()])
+    get_categories.short_description = 'Categories'
 
     def get_amount(self, obj):
         color = 'green' if obj.monitary_value >= 0 else 'red'

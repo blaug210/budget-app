@@ -23,10 +23,10 @@ class BudgetItem(TimeStampedModel):
         on_delete=models.CASCADE,
         related_name='items'
     )
-    category = models.ForeignKey(
+    categories = models.ManyToManyField(
         'Category',
-        on_delete=models.PROTECT,
-        related_name='budget_items'
+        related_name='budget_items',
+        help_text="Categories for this transaction (can have multiple)"
     )
     monitary_value = models.DecimalField(
         max_digits=12,
@@ -75,8 +75,8 @@ class BudgetItem(TimeStampedModel):
         default=0,
         help_text="Running balance after this transaction"
     )
-    import_source = models.CharField(max_length=255, blank=True)
-    reference_number = models.CharField(max_length=100, blank=True)
+    import_source = models.CharField(max_length=255, blank=True, default='')
+    reference_number = models.CharField(max_length=100, blank=True, default='')
     update_timestamp = models.DateTimeField(auto_now=True)
 
     # State
@@ -95,7 +95,6 @@ class BudgetItem(TimeStampedModel):
         ordering = ['date', 'sequence_number']
         indexes = [
             models.Index(fields=['budget', 'date']),
-            models.Index(fields=['category']),
             models.Index(fields=['member']),
             models.Index(fields=['source']),
             models.Index(fields=['unique_id']),

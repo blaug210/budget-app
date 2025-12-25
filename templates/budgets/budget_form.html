@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if is_edit %}Edit Budget{% else %}Create New Budget{% endif %} - Budget App{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1>
+            {% if is_edit %}
+            <i class="bi bi-pencil"></i> Edit Budget
+            {% else %}
+            <i class="bi bi-plus-circle"></i> Create New Budget
+            {% endif %}
+        </h1>
+        <p class="text-muted">
+            {% if is_edit %}
+            Update your budget details
+            {% else %}
+            Set up a new budget to track your income and expenses
+            {% endif %}
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form method="post" action="{% if is_edit %}{% url 'budgets:budget_edit' budget.pk %}{% else %}{% url 'budgets:budget_create' %}{% endif %}">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Budget Name <span class="text-danger">*</span></label>
+                        <input type="text"
+                               class="form-control"
+                               id="name"
+                               name="name"
+                               value="{% if budget %}{{ budget.name }}{% endif %}"
+                               placeholder="e.g., February 2025, Vacation Fund, Emergency Savings"
+                               required
+                               autofocus>
+                        <div class="form-text">Give your budget a descriptive name</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="group" class="form-label">Budget Group</label>
+                        <select class="form-select" id="group" name="group">
+                            <option value="">Select a group (or leave blank for Default)</option>
+                            {% for group in groups %}
+                            <option value="{{ group.pk }}" {% if budget and budget.group.pk == group.pk %}selected{% endif %}>{{ group.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="form-text">Organize budgets into groups by year, project, or category</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea class="form-control"
+                                  id="notes"
+                                  name="notes"
+                                  rows="3"
+                                  placeholder="Optional notes about this budget...">{% if budget %}{{ budget.notes }}{% endif %}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="is_copy" name="is_copy" {% if budget and budget.is_copy %}checked{% endif %}>
+                            <label class="form-check-label" for="is_copy">
+                                <i class="bi bi-files"></i> Mark as Copy
+                            </label>
+                            <div class="form-text">Use this for budget snapshots or backups</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="is_whatif" name="is_whatif" {% if budget and budget.is_whatif %}checked{% endif %}>
+                            <label class="form-check-label" for="is_whatif">
+                                <i class="bi bi-question-circle"></i> Mark as What-If Scenario
+                            </label>
+                            <div class="form-text">Use this for forecasting and planning scenarios</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> {% if is_edit %}Update Budget{% else %}Create Budget{% endif %}
+                        </button>
+                        <a href="{% if is_edit %}{% url 'budgets:budget_detail' budget.pk %}{% else %}{% url 'budgets:budget_list' %}{% endif %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <div class="alert alert-info">
+                <h6><i class="bi bi-lightbulb"></i> Tip</h6>
+                <p class="mb-0 small">After creating your budget, you can add transactions manually or import them from CSV, XML, or OFX files.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-lg-6">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-info-circle"></i> Budget Types</h5>
+
+                <div class="mb-3">
+                    <h6><i class="bi bi-wallet2"></i> Regular Budget</h6>
+                    <p class="small text-muted">Standard budget for tracking day-to-day income and expenses.</p>
+                </div>
+
+                <div class="mb-3">
+                    <h6><i class="bi bi-files"></i> Copy Budget</h6>
+                    <p class="small text-muted">A snapshot of another budget for backup or comparison purposes. Won't affect your main tracking.</p>
+                </div>
+
+                <div class="mb-3">
+                    <h6><i class="bi bi-question-circle"></i> What-If Budget</h6>
+                    <p class="small text-muted">A scenario budget for forecasting and planning. Test different financial decisions without affecting your actual budget.</p>
+                </div>
+
+                <hr>
+
+                <h6><i class="bi bi-folder"></i> Budget Groups</h6>
+                <p class="small text-muted">Budget groups help you organize related budgets. Common grouping strategies:</p>
+                <ul class="small text-muted">
+                    <li>By year (2024, 2025, etc.)</li>
+                    <li>By purpose (Personal, Business, Vacation)</li>
+                    <li>By project or goal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

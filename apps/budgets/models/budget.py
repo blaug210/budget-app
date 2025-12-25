@@ -60,9 +60,14 @@ class Budget(TimeStampedModel):
         return items['min_date'], items['max_date']
 
     def get_total_income(self):
-        """Calculate total income for this budget."""
-        from django.db.models import Sum
-        total = self.items.filter(monitary_value__gt=0).aggregate(
+        """Calculate total income for this budget (excluding beginning balances)."""
+        from django.db.models import Sum, Q
+        total = self.items.filter(
+            monitary_value__gt=0
+        ).exclude(
+            Q(description__icontains='beginning balance') |
+            Q(description__icontains='begin balance')
+        ).aggregate(
             total=Sum('monitary_value')
         )['total']
         return total or 0
@@ -76,7 +81,10 @@ class Budget(TimeStampedModel):
         return total or 0
 
     def get_current_balance(self):
-        """Get the current balance (sum of all items)."""
-        from django.db.models import Sum
-        total = self.items.aggregate(total=Sum('monitary_value'))['total']
+        """Get the current balance (sum of all items, excluding beginning balances)."""
+        from django.db.models import Sum, Q
+        total = self.items.exclude(
+            Q(description__icontains='beginning balance') |
+            Q(description__icontains='begin balance')
+        ).aggregate(total=Sum('monitary_value'))['total']
         return total or 0

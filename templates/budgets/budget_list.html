@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block title %}My Budgets - Budget App{% endblock %}
 
@@ -9,7 +10,7 @@
         <p class="text-muted">Manage your budgets and track your finances</p>
     </div>
     <div class="col-md-4 text-end">
-        <a href="/admin/budgets/budget/add/" class="btn btn-primary">
+        <a href="{% url 'budgets:budget_create' %}" class="btn btn-primary">
             <i class="bi bi-plus-circle"></i> New Budget
         </a>
     </div>
@@ -41,7 +42,7 @@
                         <small class="text-muted d-block">Balance</small>
                         {% if budget.total_balance %}
                             <strong class="{% if budget.total_balance >= 0 %}balance-positive{% else %}balance-negative{% endif %}">
-                                ${{ budget.total_balance|floatformat:2 }}
+                                ${{ budget.total_balance|floatformat:2|intcomma }}
                             </strong>
                         {% else %}
                             <strong class="text-muted">$0.00</strong>
@@ -69,7 +70,7 @@
 <div class="alert alert-info">
     <h4><i class="bi bi-info-circle"></i> No Budgets Yet</h4>
     <p>Get started by creating your first budget!</p>
-    <a href="/admin/budgets/budget/add/" class="btn btn-primary">
+    <a href="{% url 'budgets:budget_create' %}" class="btn btn-primary">
         <i class="bi bi-plus-circle"></i> Create Your First Budget
     </a>
 </div>

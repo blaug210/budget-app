@@ -16,6 +16,39 @@
             --expense-color: #dc3545;
         }
 
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+        }
+
+        main {
+            flex: 1 0 auto;
+            padding-top: 76px; /* Height of navbar + spacing */
+            padding-bottom: 92px; /* Height of footer + spacing */
+        }
+
+        footer {
+            flex-shrink: 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1020;
+        }
+
         .navbar-brand {
             font-weight: bold;
         }
@@ -51,7 +84,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="{% url 'budgets:budget_list' %}">
                 <i class="bi bi-wallet2"></i> Budget App
@@ -89,12 +122,12 @@
     {% endif %}
 
     <!-- Main Content -->
-    <main class="container mb-5">
+    <main class="container">
         {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light py-4 mt-5">
+    <footer class="bg-light py-4">
         <div class="container text-center text-muted">
             <small>Budget App &copy; 2025 | Built with Django & Bootstrap</small>
         </div>

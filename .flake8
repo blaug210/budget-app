@@ -1,0 +1,30 @@
+[flake8]
+max-line-length = 100
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    env,
+    */migrations/*,
+    */static/*,
+    */media/*,
+    build,
+    dist,
+    *.egg-info
+
+# Ignore specific error codes
+ignore =
+    # E203: whitespace before ':' (conflicts with black)
+    E203,
+    # W503: line break before binary operator (conflicts with black)
+    W503,
+    # E501: line too long (handled by black)
+    E501,
+
+# Complexity
+max-complexity = 10
+
+# Count errors
+count = True
+statistics = True
