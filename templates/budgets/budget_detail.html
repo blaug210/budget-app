@@ -172,14 +172,31 @@
                     <!-- File Upload Area -->
                     <div class="mb-4">
                         <label for="file" class="form-label"><strong>Choose File</strong></label>
-                        <div class="border rounded p-4 text-center" id="dropZone" style="border-style: dashed !important; background-color: #f8f9fa;">
-                            <i class="bi bi-cloud-upload" style="font-size: 3rem; color: #6c757d;"></i>
-                            <p class="mt-2 mb-2">Drag and drop your file here or</p>
-                            <input type="file" class="form-control d-none" id="file" name="file" accept=".csv,.xml,.ofx,.qfx" required>
-                            <button type="button" class="btn btn-primary" onclick="document.getElementById('file').click()">
-                                <i class="bi bi-folder2-open"></i> Browse Files
-                            </button>
-                            <p class="text-muted small mt-2 mb-0" id="fileName">No file chosen</p>
+                        <div class="border rounded p-4 text-center" id="dropZone"
+                             style="border-style: dashed !important; border-width: 3px !important; background-color: #f8f9fa; transition: all 0.3s ease;">
+
+                            <!-- Default state (no file) -->
+                            <div id="uploadPrompt">
+                                <i class="bi bi-cloud-upload" style="font-size: 3rem; color: #6c757d;"></i>
+                                <p class="mt-2 mb-2">Drag and drop your file here or</p>
+                                <input type="file" class="form-control d-none" id="file" name="file" accept=".csv,.xml,.ofx,.qfx" required>
+                                <button type="button" class="btn btn-primary" onclick="document.getElementById('file').click()">
+                                    <i class="bi bi-folder2-open"></i> Browse Files
+                                </button>
+                                <p class="text-muted small mt-2 mb-0">Accepted formats: CSV, XML, OFX, QFX</p>
+                            </div>
+
+                            <!-- File selected state -->
+                            <div id="fileSelected" style="display: none;">
+                                <div class="alert alert-success mb-0 d-inline-block">
+                                    <i class="bi bi-file-earmark-check" style="font-size: 2rem;"></i>
+                                    <p class="mb-2 mt-2"><strong>File Ready:</strong></p>
+                                    <p class="mb-0 fw-bold" id="fileName" style="font-size: 1.1rem;"></p>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary mt-2" onclick="clearFile()">
+                                        <i class="bi bi-x-circle"></i> Choose Different File
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -249,30 +266,67 @@
 </div>
 
 <script>
+// Function to show file selected state
+function showFileSelected(fileName) {
+    document.getElementById('uploadPrompt').style.display = 'none';
+    document.getElementById('fileSelected').style.display = 'block';
+    document.getElementById('fileName').textContent = fileName;
+    document.getElementById('uploadBtn').disabled = false;
+
+    // Add success animation to drop zone
+    const dropZone = document.getElementById('dropZone');
+    dropZone.style.borderColor = '#198754';
+    dropZone.style.backgroundColor = '#d1e7dd';
+}
+
+// Function to clear file and reset UI
+function clearFile() {
+    document.getElementById('file').value = '';
+    document.getElementById('uploadPrompt').style.display = 'block';
+    document.getElementById('fileSelected').style.display = 'none';
+    document.getElementById('uploadBtn').disabled = true;
+
+    const dropZone = document.getElementById('dropZone');
+    dropZone.style.borderColor = '';
+    dropZone.style.backgroundColor = '#f8f9fa';
+}
+
 // File upload handling
 document.getElementById('file').addEventListener('change', function(e) {
-    const fileName = e.target.files[0]?.name || 'No file chosen';
-    document.getElementById('fileName').textContent = fileName;
-    document.getElementById('uploadBtn').disabled = !e.target.files[0];
+    if (e.target.files[0]) {
+        showFileSelected(e.target.files[0].name);
+    } else {
+        clearFile();
+    }
 });
 
 // Drag and drop
 const dropZone = document.getElementById('dropZone');
+
 dropZone.addEventListener('dragover', (e) => {
     e.preventDefault();
-    dropZone.style.backgroundColor = '#e9ecef';
+    dropZone.style.backgroundColor = '#cfe2ff';
+    dropZone.style.borderColor = '#0d6efd';
+    dropZone.style.transform = 'scale(1.02)';
 });
-dropZone.addEventListener('dragleave', () => {
-    dropZone.style.backgroundColor = '#f8f9fa';
+
+dropZone.addEventListener('dragleave', (e) => {
+    e.preventDefault();
+    if (document.getElementById('fileSelected').style.display === 'none') {
+        dropZone.style.backgroundColor = '#f8f9fa';
+        dropZone.style.borderColor = '';
+        dropZone.style.transform = 'scale(1)';
+    }
 });
+
 dropZone.addEventListener('drop', (e) => {
     e.preventDefault();
-    dropZone.style.backgroundColor = '#f8f9fa';
+    dropZone.style.transform = 'scale(1)';
+
     const file = e.dataTransfer.files[0];
     if (file) {
         document.getElementById('file').files = e.dataTransfer.files;
-        document.getElementById('fileName').textContent = file.name;
-        document.getElementById('uploadBtn').disabled = false;
+        showFileSelected(file.name);
     }
 });
 
