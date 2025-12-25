@@ -1,0 +1,1301 @@
+<?xml version="1.0"?>
+
+<!--
+OFXHEADER:100
+DATA:OFXSGML
+VERSION:102
+SECURITY:NONE
+ENCODING:USASCII
+CHARSET:1252
+COMPRESSION:NONE
+OLDFILEUID:NONE
+NEWFILEUID:NONE
+ -->
+
+<OFX>
+    <SIGNONMSGSRSV1>
+        <SONRS>
+            <STATUS>
+                <CODE>0</CODE>
+                <SEVERITY>INFO</SEVERITY>
+            </STATUS>
+
+            <DTSERVER>20091212111503</DTSERVER>
+            <LANGUAGE>ENG</LANGUAGE>
+            <DTACCTUP>20091212111503</DTACCTUP>
+
+            <FI>
+                <ORG>Credit Union</ORG>
+                <FID>99999</FID>
+            </FI>
+            <INTU.BID>6457</INTU.BID>
+            <INTU.USERID>nkohl210</INTU.USERID>
+
+        </SONRS>
+    </SIGNONMSGSRSV1>
+
+    <BANKMSGSRSV1>
+        <STMTTRNRS>
+            <TRNUID>0</TRNUID>
+            <STATUS>
+                <CODE>0</CODE>
+                <SEVERITY>INFO</SEVERITY>
+            </STATUS>
+
+            <STMTRS>
+                <CURDEF>USD</CURDEF>
+                <BANKACCTFROM>
+                    <BANKID>123456789</BANKID>
+                    <ACCTID>124053-90</ACCTID>
+                    <ACCTTYPE>CHECKING</ACCTTYPE>
+                </BANKACCTFROM>
+
+                <BANKTRANLIST>
+                    <DTSTART>20091102000000</DTSTART>
+                    <DTEND>20091211235959</DTEND>
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091102172912</DTPOSTED>
+                        <TRNAMT>-200.00</TRNAMT>
+                        <FITID>f61b42c3b111454928577c4f29dc234f</FITID>
+                        
+                        <NAME>ATM036          (2) 400 West St</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091102144236</DTPOSTED>
+                        <TRNAMT>-26.91</TRNAMT>
+                        <FITID>b52da865bd8877011f72dea01a470609</FITID>
+                        
+                        <NAME>SARGE OAK                LAFAYE</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091102144236</DTPOSTED>
+                        <TRNAMT>-35.83</TRNAMT>
+                        <FITID>18f7b0ed5ba62b1adcf6ff010425803b</FITID>
+                        
+                        <NAME>BAR BARRY LIQUORS III    W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091102144236</DTPOSTED>
+                        <TRNAMT>-317.77</TRNAMT>
+                        <FITID>53b9deeee8299674f023b878f5f3e331</FITID>
+                        
+                        <NAME>COMCAST OF LAFAYETTE     800-CO</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>CREDIT</TRNTYPE>
+                        <DTPOSTED>20091102150535</DTPOSTED>
+                        <TRNAMT>630.00</TRNAMT>
+                        <FITID>3cf8e79fc31cc76f2dd379eda4c58714</FITID>
+                        
+                        <NAME>Deposit 1200 MCKINNEY  SUITE 10</NAME>
+                        <MEMO>Credit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091103142122</DTPOSTED>
+                        <TRNAMT>-5.44</TRNAMT>
+                        <FITID>862617e165c942927e1f40c364430364</FITID>
+                        
+                        <NAME>MCDONALD'S M6318         WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091103142122</DTPOSTED>
+                        <TRNAMT>-7.44</TRNAMT>
+                        <FITID>7eaeadc44922d5a00eb98bcec3ea8aa5</FITID>
+                        
+                        <NAME>STARBUCKS USA 00024786   W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091103142122</DTPOSTED>
+                        <TRNAMT>-10.58</TRNAMT>
+                        <FITID>18721d5e79497a6798afb9ef30bbe845</FITID>
+                        
+                        <NAME>KIBU CAFE                WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091103214920</DTPOSTED>
+                        <TRNAMT>-90.61</TRNAMT>
+                        <FITID>bfc8f61a8de3ee20b26d7b07f4f8aa2c</FITID>
+                        
+                        <NAME>WAL-MART #2339         WEST LAF</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091104141654</DTPOSTED>
+                        <TRNAMT>-2.14</TRNAMT>
+                        <FITID>e3b944100445c2e660bce0e95b6ac1bf</FITID>
+                        
+                        <NAME>MCDONALD'S M6318         WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091104141654</DTPOSTED>
+                        <TRNAMT>-5.02</TRNAMT>
+                        <FITID>5c6cccec73c2ef0926f6f0f9c756c954</FITID>
+                        
+                        <NAME>MCDONALD'S M6318         WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091105141737</DTPOSTED>
+                        <TRNAMT>-6.41</TRNAMT>
+                        <FITID>51a964c0680e96fa36dfa12fb15d727e</FITID>
+                        
+                        <NAME>MCDONALD'S M6318         WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091105141737</DTPOSTED>
+                        <TRNAMT>-12.69</TRNAMT>
+                        <FITID>d1cfec9f804f9269cd1e6bc0297f5aac</FITID>
+                        
+                        <NAME>BLUE NILE                WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091109080740</DTPOSTED>
+                        <TRNAMT>-200.00</TRNAMT>
+                        <FITID>816e04e44f520910dfcd0e29468b4299</FITID>
+                        
+                        <NAME>SALLIE MAE        - 94543628061</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091109144213</DTPOSTED>
+                        <TRNAMT>-5.02</TRNAMT>
+                        <FITID>827b0dbf7731db1c0fbb767e7518d875</FITID>
+                        
+                        <NAME>MCDONALD'S M6318         WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091109144213</DTPOSTED>
+                        <TRNAMT>-8.28</TRNAMT>
+                        <FITID>66237d8199da6310c9312ac4729cdbb0</FITID>
+                        
+                        <NAME>PANDA EXPRESS 1695       WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091109144213</DTPOSTED>
+                        <TRNAMT>-10.97</TRNAMT>
+                        <FITID>0102c53d895ca029321ed416b69f3f7f</FITID>
+                        
+                        <NAME>HAWAIIAN HUT             WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091109144213</DTPOSTED>
+                        <TRNAMT>-11.08</TRNAMT>
+                        <FITID>2a53627563e3fe8992ed989f523f51b8</FITID>
+                        
+                        <NAME>BASIL THAI RESTAURANT    WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091109144213</DTPOSTED>
+                        <TRNAMT>-15.80</TRNAMT>
+                        <FITID>896ed1e84a0915122806cae18f9dd8bc</FITID>
+                        
+                        <NAME>GREEN LEAF VIETNAMESE    WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091110142112</DTPOSTED>
+                        <TRNAMT>-5.66</TRNAMT>
+                        <FITID>3f81f34222b44513d4bf0cae4a62e620</FITID>
+                        
+                        <NAME>MCDONALD'S M6318         WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>CHECK</TRNTYPE>
+                        <DTPOSTED>20091110153327</DTPOSTED>
+                        <TRNAMT>-630.00</TRNAMT>
+                        <FITID>c6a40a1cee532e520d2fb23c08890131</FITID>
+                        <CHECKNUM>000001045</CHECKNUM>
+                        <NAME>Check</NAME>
+                        <MEMO>Check</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091112092038</DTPOSTED>
+                        <TRNAMT>-7.48</TRNAMT>
+                        <FITID>883c7730937e397e6cc136451cbafbb2</FITID>
+                        
+                        <NAME>CAPTAIN GYROS            WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091112141935</DTPOSTED>
+                        <TRNAMT>-1.07</TRNAMT>
+                        <FITID>59979ac3ee2aaec463e573e928a852a4</FITID>
+                        
+                        <NAME>APL*ITUNES               866-71</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091112141935</DTPOSTED>
+                        <TRNAMT>-9.31</TRNAMT>
+                        <FITID>c009742532ee34fedf62241a00f63495</FITID>
+                        
+                        <NAME>HAWAIIAN HUT             WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091112141935</DTPOSTED>
+                        <TRNAMT>-10.10</TRNAMT>
+                        <FITID>317aa45440fdbdd5a5f326f34807de70</FITID>
+                        
+                        <NAME>FU LAN CHINESE RESTAUR   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091116005502</DTPOSTED>
+                        <TRNAMT>-61.43</TRNAMT>
+                        <FITID>c0d5dfb848d6d024233b0aba3ee9aab9</FITID>
+                        
+                        <NAME>WAL-MART #2339         WEST LAF</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091116143943</DTPOSTED>
+                        <TRNAMT>-8.01</TRNAMT>
+                        <FITID>1edca0a5a14c0c14aeedeece667d2143</FITID>
+                        
+                        <NAME>PANDA EXPRESS 1695       WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091116143943</DTPOSTED>
+                        <TRNAMT>-8.97</TRNAMT>
+                        <FITID>8e3609c9e1c5ede2928cdff3463723e0</FITID>
+                        
+                        <NAME>THE PARTHENON RESTAURANT WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091116143943</DTPOSTED>
+                        <TRNAMT>-9.51</TRNAMT>
+                        <FITID>7cbe7027ccd268f5304a2c6c440f894b</FITID>
+                        
+                        <NAME>BASIL THAI RESTAURANT    WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091116143943</DTPOSTED>
+                        <TRNAMT>-10.05</TRNAMT>
+                        <FITID>72c958e8c090ab8e490dc4f7f8cfca18</FITID>
+                        
+                        <NAME>GREAT WALL RESTAURANT    LAFAYE</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091116143943</DTPOSTED>
+                        <TRNAMT>-68.20</TRNAMT>
+                        <FITID>a478fd3f56168b397e3e617d1dc9c8a1</FITID>
+                        
+                        <NAME>Amazon.com               AMZN.C</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091117142049</DTPOSTED>
+                        <TRNAMT>-7.50</TRNAMT>
+                        <FITID>aa6769d81cb9f7446992b056adda68d1</FITID>
+                        
+                        <NAME>LOVSHACK                 W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091117142049</DTPOSTED>
+                        <TRNAMT>-9.51</TRNAMT>
+                        <FITID>81ea776a2bf7dbaa987554e66bb0553f</FITID>
+                        
+                        <NAME>KIBU CAFE                WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091117142049</DTPOSTED>
+                        <TRNAMT>-49.00</TRNAMT>
+                        <FITID>f5d37480fd9cf5162ee395c019630280</FITID>
+                        
+                        <NAME>BOILERCOPYMAKER T2       WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091118142213</DTPOSTED>
+                        <TRNAMT>-21.19</TRNAMT>
+                        <FITID>1c8269f40f184e276049ea34e8340a09</FITID>
+                        
+                        <NAME>LENNYS SUB SHOP 161      W. LAF</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091120142723</DTPOSTED>
+                        <TRNAMT>-4.55</TRNAMT>
+                        <FITID>fb5e53d6c0601327f9f40fa50f6637f8</FITID>
+                        
+                        <NAME>JIMMY JOHN'S # 90020     WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-2.09</TRNAMT>
+                        <FITID>09bb3ce9aeb2a5235705d1d6db268f53</FITID>
+                        
+                        <NAME>GREYHOUSE COFFEE AND SUPPWEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-4.55</TRNAMT>
+                        <FITID>52303eb9d5e512315093a796665b20fc</FITID>
+                        
+                        <NAME>JIMMY JOHN'S # 90020     WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-8.38</TRNAMT>
+                        <FITID>2e330ad1c014fa0a35e5ae61b196b21b</FITID>
+                        
+                        <NAME>TASTY CHINESE RESTAURA   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-8.87</TRNAMT>
+                        <FITID>23dcbcdc467a283b6a26d4ddb326a851</FITID>
+                        
+                        <NAME>BAR BARRY LIQUORS III    W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-10.06</TRNAMT>
+                        <FITID>e6c02ec8c29eeee2ed3d9612e475369e</FITID>
+                        
+                        <NAME>NOODLES &amp; COMPANY        WE</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-12.93</TRNAMT>
+                        <FITID>a529e459eb90dc711a378ff70a3c9a19</FITID>
+                        
+                        <NAME>GOLDEN CORRAL 690        LAFAYE</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-14.99</TRNAMT>
+                        <FITID>ec15caf8b5c0d5d996468f962a5a2b03</FITID>
+                        
+                        <NAME>PLAYSTATION NETWORK      877-97</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-23.39</TRNAMT>
+                        <FITID>86fbe8e6e9ad1e8f9f4ba881e2804337</FITID>
+                        
+                        <NAME>PAPA JOHNS #0057         330-65</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-63.88</TRNAMT>
+                        <FITID>f59d4dd60ff4ad4108b28f030f7973b1</FITID>
+                        
+                        <NAME>BARNES&amp;NOBLE*COM         80</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091123144117</DTPOSTED>
+                        <TRNAMT>-104.97</TRNAMT>
+                        <FITID>605dfe6643bc90a45fabb2a19150940a</FITID>
+                        
+                        <NAME>COMCAST OF LAFAYETTE     800-CO</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091124080103</DTPOSTED>
+                        <TRNAMT>-59.42</TRNAMT>
+                        <FITID>46f37e38e7f3f768f412d1ba776f90d9</FITID>
+                        
+                        <NAME>DUKE ENERGY IN    - 00143904112</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091124142933</DTPOSTED>
+                        <TRNAMT>-2.25</TRNAMT>
+                        <FITID>fe2bb8161998256ead83185702839ef6</FITID>
+                        
+                        <NAME>VIENNA COFFEE HOUSE &amp; BA WE</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091124142933</DTPOSTED>
+                        <TRNAMT>-7.22</TRNAMT>
+                        <FITID>977054d6166a3c7408e3371f6200f9b7</FITID>
+                        
+                        <NAME>SUBWAY        00011031   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091124142933</DTPOSTED>
+                        <TRNAMT>-8.91</TRNAMT>
+                        <FITID>74eef0c31d8472adf411d4377ee7cb11</FITID>
+                        
+                        <NAME>PIZZA HUT #01165010548   W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091125142611</DTPOSTED>
+                        <TRNAMT>-7.36</TRNAMT>
+                        <FITID>7639874f11b4f5b37eb83183778282ef</FITID>
+                        
+                        <NAME>FIESTA MEXICAN GRILL     W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127143133</DTPOSTED>
+                        <TRNAMT>-23.64</TRNAMT>
+                        <FITID>9f3011c8da61bb09d155d26365283e34</FITID>
+                        
+                        <NAME>WAL-MART #1547         LAFAYETT</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127191439</DTPOSTED>
+                        <TRNAMT>-12.91</TRNAMT>
+                        <FITID>e0a5e9c4fb0d74c5bcffdb45f2353c8b</FITID>
+                        
+                        <NAME>WAL-MART #2339         WEST LAF</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127191721</DTPOSTED>
+                        <TRNAMT>-13.50</TRNAMT>
+                        <FITID>efa9306b2293252e1175ced401120687</FITID>
+                        
+                        <NAME>WAL-MART #2339         WEST LAF</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127084127</DTPOSTED>
+                        <TRNAMT>-58.85</TRNAMT>
+                        <FITID>073beaabefefa1169ef2b950075b3c19</FITID>
+                        
+                        <NAME>MACY'S      603 2415 SALAFAYETT</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127093052</DTPOSTED>
+                        <TRNAMT>-1.07</TRNAMT>
+                        <FITID>c809c65b408bd078090e19be54bd1da6</FITID>
+                        
+                        <NAME>APL*ITUNES               866-71</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127093052</DTPOSTED>
+                        <TRNAMT>-5.35</TRNAMT>
+                        <FITID>ac9e0098b4608d5acfc08e4a6eb2f91b</FITID>
+                        
+                        <NAME>JIMMY JOHN'S # 90020     WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127093052</DTPOSTED>
+                        <TRNAMT>-9.58</TRNAMT>
+                        <FITID>d4e0eadf3e191711e72301a71e48a1e2</FITID>
+                        
+                        <NAME>KIBU CAFE                WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127093052</DTPOSTED>
+                        <TRNAMT>-11.58</TRNAMT>
+                        <FITID>64a4bfe9a06da2c29e7c8e2aee9f901c</FITID>
+                        
+                        <NAME>KIBU CAFE                WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127093052</DTPOSTED>
+                        <TRNAMT>-17.00</TRNAMT>
+                        <FITID>682b045715bc03f207f8d4c527787955</FITID>
+                        
+                        <NAME>CHUMLEY'S                LAFAYE</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091127211012</DTPOSTED>
+                        <TRNAMT>-14.50</TRNAMT>
+                        <FITID>3a95bdd566121b7a7b4b12b39b286d10</FITID>
+                        
+                        <NAME>WILLIAMS-SONOMA 0506   INDIANAP</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091130144544</DTPOSTED>
+                        <TRNAMT>-1.07</TRNAMT>
+                        <FITID>9b1aad446c3b485fe283a3e3355ccede</FITID>
+                        
+                        <NAME>MCDONALD'S M6318         WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091130144544</DTPOSTED>
+                        <TRNAMT>-7.75</TRNAMT>
+                        <FITID>fd23c5feb62f070f64504ba3fb213db4</FITID>
+                        
+                        <NAME>PANDA EXPRESS 1695       WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091130144544</DTPOSTED>
+                        <TRNAMT>-10.15</TRNAMT>
+                        <FITID>4a4b8bb690f148f80c2272efc8c8723c</FITID>
+                        
+                        <NAME>VILLAGE BOTTLE SHOPPE1   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091130144544</DTPOSTED>
+                        <TRNAMT>-15.56</TRNAMT>
+                        <FITID>e4dc769e3606f0d760c85025fa25cef9</FITID>
+                        
+                        <NAME>IHOP #3066               LAFAYE</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091130144544</DTPOSTED>
+                        <TRNAMT>-24.67</TRNAMT>
+                        <FITID>7524203d3206dcd4f448b506d01f2b50</FITID>
+                        
+                        <NAME>TGI FRIDAY'S             INDIAN</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091130144544</DTPOSTED>
+                        <TRNAMT>-35.53</TRNAMT>
+                        <FITID>5108c5cba65e0c4e714b4bc09b0e99ef</FITID>
+                        
+                        <NAME>Amazon.com               AMZN.C</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091201165319</DTPOSTED>
+                        <TRNAMT>-3.63</TRNAMT>
+                        <FITID>5ab4ca4ebe470d25cd2c14433a8f494b</FITID>
+                        
+                        <NAME>MCDONALD'S M6318         WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091201165319</DTPOSTED>
+                        <TRNAMT>-50.00</TRNAMT>
+                        <FITID>d001317549a2e407bb71316c912f695e</FITID>
+                        
+                        <NAME>LAKE DERMATOLOGY INC     LAFAYE</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091201224336</DTPOSTED>
+                        <TRNAMT>-47.78</TRNAMT>
+                        <FITID>464c64d37a190c6a51042ef60d8a964f</FITID>
+                        
+                        <NAME>WAL-MART #2339         WEST LAF</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091202142902</DTPOSTED>
+                        <TRNAMT>-3.00</TRNAMT>
+                        <FITID>89042ec3e72d28443e8e3c67eaa7057a</FITID>
+                        
+                        <NAME>GEVALIA*SHIPMENT         800-43</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091202142902</DTPOSTED>
+                        <TRNAMT>-6.42</TRNAMT>
+                        <FITID>72ebd2db0bcd65aae01db01b74923d00</FITID>
+                        
+                        <NAME>SUBWAY        00011031   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091203142650</DTPOSTED>
+                        <TRNAMT>-20.46</TRNAMT>
+                        <FITID>8839ec2c8e212117332b4d9c5679f25d</FITID>
+                        
+                        <NAME>RICE CAFE                WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>CREDIT</TRNTYPE>
+                        <DTPOSTED>20091203142747</DTPOSTED>
+                        <TRNAMT>35.53</TRNAMT>
+                        <FITID>518c81b02c8db8963e286ee1c56c528b</FITID>
+                        
+                        <NAME>Amazon.com               AMZN.C</NAME>
+                        <MEMO>Credit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091207144428</DTPOSTED>
+                        <TRNAMT>-2.09</TRNAMT>
+                        <FITID>da64c4566bd2b8bd2c0abeeb878a6a6c</FITID>
+                        
+                        <NAME>PMU RETAIL OP T2   Q02   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091207144428</DTPOSTED>
+                        <TRNAMT>-6.00</TRNAMT>
+                        <FITID>f3ae7143c96e4069e0442ea147c26517</FITID>
+                        
+                        <NAME>TASTY CHINESE RESTAURA   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091207144428</DTPOSTED>
+                        <TRNAMT>-6.41</TRNAMT>
+                        <FITID>969f7d8ce04fdc21d3adf76c1b8c0ff4</FITID>
+                        
+                        <NAME>VILLAGE BOTTLE SHOPPE1   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091207144428</DTPOSTED>
+                        <TRNAMT>-6.94</TRNAMT>
+                        <FITID>dc278ea40cfe0fc9d53c81959ce95b2a</FITID>
+                        
+                        <NAME>QDOBA 403     13904032   W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091207144428</DTPOSTED>
+                        <TRNAMT>-7.49</TRNAMT>
+                        <FITID>ebc7e990b6646f9abee7fa3aa8b323dc</FITID>
+                        
+                        <NAME>SUBWAY        00011031   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091207144428</DTPOSTED>
+                        <TRNAMT>-9.32</TRNAMT>
+                        <FITID>a5b86da50884645f9d5e2a5aa27e47ca</FITID>
+                        
+                        <NAME>FIESTA MEXICAN GRILL     W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091208142330</DTPOSTED>
+                        <TRNAMT>-11.65</TRNAMT>
+                        <FITID>f67b5e72df0b27ecbbff757382969921</FITID>
+                        
+                        <NAME>KIBU CAFE                WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091208142330</DTPOSTED>
+                        <TRNAMT>-19.00</TRNAMT>
+                        <FITID>4ce6b3bafdb98762d189be426d4fe15f</FITID>
+                        
+                        <NAME>HAPPY CHINA              WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091210142428</DTPOSTED>
+                        <TRNAMT>-1.07</TRNAMT>
+                        <FITID>f9a318f95b1ed3e60e5d33eb4e2c37c9</FITID>
+                        
+                        <NAME>APL*ITUNES               866-71</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091210142428</DTPOSTED>
+                        <TRNAMT>-7.48</TRNAMT>
+                        <FITID>aefec57d1bcc6dab5589e5bff1010b22</FITID>
+                        
+                        <NAME>QDOBA 403     13904032   W LAFA</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091210142428</DTPOSTED>
+                        <TRNAMT>-8.45</TRNAMT>
+                        <FITID>d012edce1c5201aae91fcbc5af5efd52</FITID>
+                        
+                        <NAME>MARU SUSHI               WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091211143638</DTPOSTED>
+                        <TRNAMT>-6.41</TRNAMT>
+                        <FITID>2f9ec387b82e0b14b96e60b6c190bbb8</FITID>
+                        
+                        <NAME>PANDA EXPRESS 1695       WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20091211143638</DTPOSTED>
+                        <TRNAMT>-8.38</TRNAMT>
+                        <FITID>b6cc23ac87332a3cc55e022a393ac3cf</FITID>
+                        
+                        <NAME>TASTY CHINESE RESTAURA   WEST L</NAME>
+                        <MEMO>Debit</MEMO>
+                    </STMTTRN>
+
+
+    
+
+
+            <STMTTRN>
+                        <TRNTYPE>CHECK</TRNTYPE>
+                        <DTPOSTED>20091211152017</DTPOSTED>
+                        <TRNAMT>-630.00</TRNAMT>
+                        <FITID>12b6c94a52e508718d1b1ad44f896db5</FITID>
+                        <CHECKNUM>000001046</CHECKNUM>
+                        <NAME>Check</NAME>
+                        <MEMO>Check</MEMO>
+                    </STMTTRN>
+
+
+    
+                </BANKTRANLIST>
+					
+                <LEDGERBAL>
+                    <BALAMT>645.93</BALAMT>
+                    <DTASOF>20091212110651</DTASOF>
+                </LEDGERBAL>
+
+            </STMTRS>
+        </STMTTRNRS>
+    </BANKMSGSRSV1>
+</OFX>
+  

@@ -408,12 +408,12 @@ budget_app/
 - [x] Implement duplicate detection for imports
 - [x] Add running balance recalculation after import
 
-**Phase E: Import Preview & Validation**
-- [ ] Implement preview functionality (show first 10-20 rows before import)
-- [ ] Add column mapping interface for CSV files (map CSV columns to model fields)
-- [ ] Show data validation warnings (missing categories, invalid amounts, etc.)
-- [ ] Create confirmation step with summary (X items to import, Y duplicates found)
-- [ ] Allow user to select duplicate handling strategy (skip/replace/merge)
+**Phase E: Import Preview & Validation** ✅ CORE COMPLETED
+- [x] Implement preview functionality (show first 10-20 rows before import)
+- [ ] Add column mapping interface for CSV files (map CSV columns to model fields) (future enhancement)
+- [x] Show data validation warnings (missing categories, invalid amounts, etc.)
+- [x] Create confirmation step with summary (X items to import, Y duplicates found)
+- [ ] Allow user to select duplicate handling strategy (skip/replace/merge) (future enhancement - currently defaults to skip)
 
 **Phase F: Import Execution & Feedback** ✅ CORE COMPLETED
 - [x] Create upload view to handle file uploads (apps/budgets/views.py bulk_upload)

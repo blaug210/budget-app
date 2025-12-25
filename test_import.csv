@@ -1,0 +1,6 @@
+date,description,amount,category,member,source,reference_number
+2025-11-20,Grocery Shopping,-125.50,Groceries,John,Checking,REF001
+2025-11-21,Salary Deposit,3500.00,Income,John,Paycheck,SAL1122
+2025-11-21,Electric Bill,-89.99,Utilities,,,ELEC456
+2025-11-22,Coffee Shop,-5.75,Food & Dining,Jane,Credit Card,
+2025-11-22,Gas Station,-45.00,Transportation,John,Debit Card,GAS789
