@@ -453,12 +453,19 @@ def bulk_upload(request, budget_id):
                 messages.warning(request, "No valid transactions found in the file.")
                 return redirect("budgets:budget_detail", pk=budget_id)
 
-            # Convert date objects to strings for JSON serialization
+            # Convert date and Decimal objects to strings for JSON serialization
+            from decimal import Decimal
+
             serializable_transactions = []
             for trans in transactions:
-                trans_copy = trans.copy()
-                if "date" in trans_copy and hasattr(trans_copy["date"], "isoformat"):
-                    trans_copy["date"] = trans_copy["date"].isoformat()
+                trans_copy = {}
+                for key, value in trans.items():
+                    if hasattr(value, "isoformat"):  # Date/datetime objects
+                        trans_copy[key] = value.isoformat()
+                    elif isinstance(value, Decimal):  # Decimal objects
+                        trans_copy[key] = str(value)
+                    else:
+                        trans_copy[key] = value
                 serializable_transactions.append(trans_copy)
 
             # Store transactions in session for preview
@@ -489,12 +496,16 @@ def bulk_upload_preview(request, budget_id):
         messages.error(request, "No pending import found. Please upload a file first.")
         return redirect("budgets:budget_detail", pk=budget_id)
 
-    # Convert date strings back to date objects for preview
+    # Convert date strings back to date objects and amount strings to Decimals
+    from decimal import Decimal
+
     transactions = []
     for trans in pending_import["transactions"]:
         trans_copy = trans.copy()
         if "date" in trans_copy and isinstance(trans_copy["date"], str):
             trans_copy["date"] = datetime.fromisoformat(trans_copy["date"]).date()
+        if "amount" in trans_copy and isinstance(trans_copy["amount"], str):
+            trans_copy["amount"] = Decimal(trans_copy["amount"])
         transactions.append(trans_copy)
 
     # Generate preview
@@ -523,12 +534,16 @@ def bulk_upload_confirm(request, budget_id):
             return redirect("budgets:budget_detail", pk=budget_id)
 
         try:
-            # Convert date strings back to date objects for import
+            # Convert date strings back to date objects and amount strings to Decimals
+            from decimal import Decimal
+
             transactions = []
             for trans in pending_import["transactions"]:
                 trans_copy = trans.copy()
                 if "date" in trans_copy and isinstance(trans_copy["date"], str):
                     trans_copy["date"] = datetime.fromisoformat(trans_copy["date"]).date()
+                if "amount" in trans_copy and isinstance(trans_copy["amount"], str):
+                    trans_copy["amount"] = Decimal(trans_copy["amount"])
                 transactions.append(trans_copy)
 
             # Import transactions
