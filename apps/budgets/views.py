@@ -2,6 +2,7 @@
 Views for budgets app.
 """
 
+from datetime import datetime
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.db.models import Sum, Count
@@ -452,9 +453,17 @@ def bulk_upload(request, budget_id):
                 messages.warning(request, "No valid transactions found in the file.")
                 return redirect("budgets:budget_detail", pk=budget_id)
 
+            # Convert date objects to strings for JSON serialization
+            serializable_transactions = []
+            for trans in transactions:
+                trans_copy = trans.copy()
+                if "date" in trans_copy and hasattr(trans_copy["date"], "isoformat"):
+                    trans_copy["date"] = trans_copy["date"].isoformat()
+                serializable_transactions.append(trans_copy)
+
             # Store transactions in session for preview
             request.session["pending_import"] = {
-                "transactions": transactions,
+                "transactions": serializable_transactions,
                 "file_name": uploaded_file.name,
                 "file_type": file_type,
                 "budget_id": str(budget_id),
@@ -480,9 +489,17 @@ def bulk_upload_preview(request, budget_id):
         messages.error(request, "No pending import found. Please upload a file first.")
         return redirect("budgets:budget_detail", pk=budget_id)
 
+    # Convert date strings back to date objects for preview
+    transactions = []
+    for trans in pending_import["transactions"]:
+        trans_copy = trans.copy()
+        if "date" in trans_copy and isinstance(trans_copy["date"], str):
+            trans_copy["date"] = datetime.fromisoformat(trans_copy["date"]).date()
+        transactions.append(trans_copy)
+
     # Generate preview
     import_service = ImportService(budget)
-    preview_data = import_service.preview_import(pending_import["transactions"])
+    preview_data = import_service.preview_import(transactions)
 
     context = {
         "budget": budget,
@@ -506,10 +523,18 @@ def bulk_upload_confirm(request, budget_id):
             return redirect("budgets:budget_detail", pk=budget_id)
 
         try:
+            # Convert date strings back to date objects for import
+            transactions = []
+            for trans in pending_import["transactions"]:
+                trans_copy = trans.copy()
+                if "date" in trans_copy and isinstance(trans_copy["date"], str):
+                    trans_copy["date"] = datetime.fromisoformat(trans_copy["date"]).date()
+                transactions.append(trans_copy)
+
             # Import transactions
             import_service = ImportService(budget)
             result = import_service.import_transactions(
-                pending_import["transactions"],
+                transactions,
                 pending_import["file_name"],
                 pending_import["file_type"],
             )
@@ -520,13 +545,13 @@ def bulk_upload_confirm(request, budget_id):
             # Display results
             stats = result["stats"]
             success_msg = "<strong>Import Complete!</strong><br>"
-            success_msg += '✅ Imported: {} transactions<br>'.format(stats["imported"])
+            success_msg += "✅ Imported: {} transactions<br>".format(stats["imported"])
 
             if stats["duplicates"] > 0:
-                success_msg += '⚠️ Duplicates skipped: {}<br>'.format(stats["duplicates"])
+                success_msg += "⚠️ Duplicates skipped: {}<br>".format(stats["duplicates"])
 
             if stats["errors"] > 0:
-                success_msg += '❌ Errors: {}<br>'.format(stats["errors"])
+                success_msg += "❌ Errors: {}<br>".format(stats["errors"])
                 if result["errors"]:
                     success_msg += "<br><strong>Errors:</strong><ul>"
                     for error in result["errors"][:5]:
